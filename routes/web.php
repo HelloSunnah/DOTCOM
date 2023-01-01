@@ -1,0 +1,126 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\categoryController;
+use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\CustomerController;
+use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\auth\authController;
+use App\Http\Controllers\Frontend\ProjectViewController;
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/reg_form',[authController::class ,'regForm'])->name('regForm');
+Route::post('/reg_form_submit',[authController::class ,'regFormSubmit'])->name('regFormSubmit');
+
+Route::get('/Login_form',[authController::class ,'login'])->name('login');
+Route::post('/Login_form_submit',[authController::class ,'loginSubmit'])->name('loginSubmit');
+
+Route::group(['middleware'=>'CheckAdmin'],function(){
+
+Route::get('/logout',[authController::class ,'logout'])->name('logout');
+
+
+
+
+
+Route::get('/', function () {
+    return view('backend.content');
+})->name('admin');
+Route::get('/dashboard-admin',[DashboardController::class,'dashboard'])->name('dashboard');
+Route::get('/content-admin',[DashboardController::class,'content'])->name('content');
+
+
+
+
+
+
+
+
+//order
+Route::get('/orderList',[orderController::class,'orderList'])->name('orderList');
+Route::get('/orderCreate',[orderController::class,'orderCreate'])->name('orderCreate');
+Route::post('/orderSubmit_create',[orderController::class,'orderSubmit_create'])->name('orderSubmit_create');
+Route::get('/delete_order/{id}',[orderController::class,'delete_order'])->name('delete_order');
+Route::get('/edit_order/{id}',[orderController::class,'edit_order'])->name('edit_order');
+Route::put('/Update_order/{id}',[orderController::class,'Update_order'])->name('Update_order');
+
+
+//Customer
+Route::get('/CustomerList',[CustomerController::class,'CustomerList'])->name('CustomerList');
+Route::get('/CustomerCreate',[CustomerController::class,'CustomerCreate'])->name('CustomerCreate');
+Route::post('/Customer_submit_Create',[CustomerController::class,'Customer_submit_Create'])->name('Customer_submit_Create');
+
+Route::get('/Customer_delete/{id}',[CustomerController::class,'Customer_delete'])->name('Customer_delete');
+
+
+Route::get('/Customer_edit/{id}',[CustomerController::class,'Customer_edit'])->name('Customer_edit');
+Route::put('/Customer_submit_edit/{id}',[CustomerController::class,'Customer_submit_edit'])->name('Customer_submit_edit');
+
+
+
+                              //Product
+
+Route::get('/Product_list',[ProductController::class,'Product_list'])->name('Product_list');
+Route::get('/Product_create',[ProductController::class,'Product_create'])->name('Product_create');
+Route::post('/Product_submit_create',[ProductController::class,'Product_submit_create'])->name('Product_submit_create');
+
+Route::get('/Product_delete/{id}',[ProductController::class,'Product_delete'])->name('Product_delete');
+
+// Route::get('/Product_edit/{id}',[ProductController::class,'Product_edit'])->name('Product_edit');
+// Route::get('/Product_submit_edit/{id}',[ProductController::class,'Product_submit_edit'])->name('Product_submit_edit');
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //    FRONTEND WORK START HERE
+
+    Route::get('/frontpage',[ProjectViewController::class,'frontpage'])->name('frontpage');
