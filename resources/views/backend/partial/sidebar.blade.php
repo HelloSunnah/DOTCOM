@@ -15,54 +15,38 @@
                 <span>Content</span>
             </a>
         </li>
+       
         <li class="nav-item">
-            <a class="nav-link " href="{{route('orderList')}}">
+            <a class="nav-link " href="{{ route('Cate_list') }}">
                 <i class="bi bi-grid"></i>
-                <span>category</span>
+                <span>Category</span>
             </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-grid"></i><span>Product</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('Product_create')}}">
-              <i class="bi bi-circle"></i><span>Add Product</span>
+            <a class="nav-link " href="{{ route('SubCategory_list') }}">
+                <i class="bi bi-grid"></i>
+                <span>SubCategory</span>
             </a>
-          </li>
-          <li>
-            <a href="{{route('Product_list')}}">
-              <i class="bi bi-circle"></i><span> Product List</span>
+        </li>
+
+      <li class="nav-item">
+            <a class="nav-link " href="{{route('Brand_list')}}">
+                <i class="bi bi-grid"></i>
+                <span>Brand</span>
             </a>
-          </li>
-        
-        </ul>
-      </li>
-
-
-         <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-grid"></i><span>Order</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('orderCreate')}}">
-              <i class="bi bi-circle"></i><span>Add Order</span>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{{route('Product_list')}}">
+                <i class="bi bi-grid"></i>
+                <span>Product</span>
             </a>
-          </li>
-          <li>
-            <a href="{{route('orderList')}}">
-              <i class="bi bi-circle"></i><span>Order List</span>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{{route('orderList')}}">
+                <i class="bi bi-grid"></i>
+                <span>Order</span>
             </a>
-          </li>
-        
-        </ul>
-      </li>
-
-
-
-
+        </li>
       <li class="nav-item">
             <a class="nav-link " href="{{route('CustomerList')}}">
             <i class="fa-duotone fa-user-hair-mullet"></i>  <span>Customer</span>

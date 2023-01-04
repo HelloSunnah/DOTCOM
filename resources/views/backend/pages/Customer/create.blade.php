@@ -9,27 +9,27 @@
         <label for="exampleInputEmail1">Customer Id</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Enter your order amount" name="customer_id">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
+            @error('customer_id')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Customer Name</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Enter your order amount" name="customer_name">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
+            @error('customer_name')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Customer Image</label>
         <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Enter your order amount" name="customer_image">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
+            @error('customer_image')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Customer Mobile</label>
         <input type="text" class="form-control" id="exampleInputPassword1"
             placeholder="Enter your order date" name="customer_mobile">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
+            @error('customer_mobile')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>
 

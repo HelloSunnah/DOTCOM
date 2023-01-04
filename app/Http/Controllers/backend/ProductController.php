@@ -2,27 +2,31 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class ProductController extends Controller
 {
 public function Product_list(){
-    $Productall=Product::all();
+    $Productall=Product::with('categories')->get();
     return view('backend.pages.Product.list',compact('Productall'));
     
     }
 
 
     public function Product_create(){
-        return view('backend.pages.Product.create');
+        $categories = Category::all();
+        return view('backend.pages.Product.create',compact('categories'));
 
 }
-public function Product_submit_create(Request $request)
-{
+public function Product_submit_create(Request $request){
+
     $request->validate([
-'product_id'=>'required',
+
 'product_name'=>'required',
+'category_id'=>'required',
 'product_image'=>'required',
 'product_size'=>'required',
 'product_price'=>'required',
@@ -36,10 +40,9 @@ public function Product_submit_create(Request $request)
     }
 
     Product::create([
-        'product_id'=>$request->product_id,
         'product_name'=>$request->product_name,
+        'category_id'=>$request->category_id,
         'product_image'=>$fileName,
-
         'product_size'=>$request->product_size,
         'product_price'=>$request->product_price,
         'product_status'=>$request->product_status
@@ -49,9 +52,28 @@ public function Product_submit_create(Request $request)
     ]);
     return redirect()->route('Product_list');
 
-    }
+}
     public function Product_delete($id){
         Product::find($id)->delete();
         return back();
+    }
+    public function Product_edit($id){
+        $editProduct=Product::find($id);
+        return view('backend.pages.Product.update',compact('editProduct'));
+    }
+    public function Product_submit_edit(Request $request,$id){
+        $ProductSubmit=Product::find($id);
+      $ProductSubmit->update([
+
+        'product_name'=>$request->product_name,
+        'category_id'=>$request->category_id,
+        'product_image'=>$fileName,
+        'product_size'=>$request->product_size,
+        'product_price'=>$request->product_price,
+        'product_status'=>$request->product_status
+
+        
+      ]);
+      return redirect()->route('Product_list');
     }
 }

@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\backend\DashboardController;
-use App\Http\Controllers\backend\categoryController;
-use App\Http\Controllers\backend\OrderController;
-use App\Http\Controllers\backend\CustomerController;
-use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\auth\authController;
+use App\Http\Controllers\backend\BrandController;
+use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CustomerController;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\Frontend\ProjectViewController;
 
 
@@ -81,8 +84,8 @@ Route::post('/Product_submit_create',[ProductController::class,'Product_submit_c
 
 Route::get('/Product_delete/{id}',[ProductController::class,'Product_delete'])->name('Product_delete');
 
-// Route::get('/Product_edit/{id}',[ProductController::class,'Product_edit'])->name('Product_edit');
-// Route::get('/Product_submit_edit/{id}',[ProductController::class,'Product_submit_edit'])->name('Product_submit_edit');
+ Route::get('/Product_edit/{id}',[ProductController::class,'Product_edit'])->name('Product_edit');
+Route::get('/Product_submit_edit/{id}',[ProductController::class,'Product_submit_edit'])->name('Product_submit_edit');
 
 });
 
@@ -90,6 +93,11 @@ Route::get('/Product_delete/{id}',[ProductController::class,'Product_delete'])->
 
 
 
+                  //Category
+Route::get('/Category_Creat',[CategoryController::class,'Cate_Creat'])->name('Cate_Creat');
+Route::post('/Category_Submit',[CategoryController::class,'Cate_Submit'])->name('Cate_Submit');
+
+Route::get('/Category_list',[CategoryController::class,'Cate_list'])->name('Cate_list');
 
 
 
@@ -99,14 +107,26 @@ Route::get('/Product_delete/{id}',[ProductController::class,'Product_delete'])->
 
 
 
+//Sub Category
+
+Route::get('/SubCategory_Creat',[SubCategoryController::class,'SubCategory_Creat'])->name('SubCategory_Creat');
+Route::post('/SubCategory_Submit',[SubCategoryController::class,'SubCategory_Submit'])->name('SubCategory_Submit');
+Route::get('/SubCategory_list',[SubCategoryController::class,'SubCategory_list'])->name('SubCategory_list');
+Route::get('/SubCategory_edit/{id}',[SubCategoryController::class,'SubCategory_edit'])->name('SubCategory_edit');
+Route::get('/SubCategory_edit_submit/{id}',[SubCategoryController::class,'SubCategory_edit_submit'])->name('SubCategory_edit_submit');
+Route::get('/SubCategory_delete/{id}',[SubCategoryController::class,'SubCategory_delete'])->name('SubCategory_delete');
+
+
+//Brand Route
 
 
 
-
-
-
-
-
+Route::get('/Brand_create',[BrandController::class,'Brand_create'])->name('Brand_create');
+Route::post('/Brand_submit',[BrandController::class,'Brand_submit'])->name('Brand_submit');
+Route::get('/Brand_list',[BrandController::class,'Brand_list'])->name('Brand_list');
+Route::get('/Brand_edit/{id}',[BrandController::class,'Brand_edit'])->name('Brand_edit');
+Route::put('/Brand_edit_Submit/{id}',[BrandController::class,'Brand_edit_Submit'])->name('Brand_edit_Submit');
+Route::get('/Brand_delete/{id}',[BrandController::class,'Brand_delete'])->name('Brand_delete');
 
 
 

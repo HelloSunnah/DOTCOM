@@ -1,9 +1,9 @@
 @extends('backend.master')
 @section('content')
-<h1>Customer Details</h1>
+<h1>Category Page</h1>
 
 
-<form action="{{route('Customer_submit_Create')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('Cate_Submit')}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="exampleInputEmail1">Category Name</label>
@@ -12,33 +12,20 @@
             @error('category_name')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Customer Name</label>
+        <label for="exampleInputEmail1">Category Details</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter your order amount" name="customer_name">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
+            placeholder="Enter Details" name="category_details">
+            @error('category_details')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Customer Image</label>
-        <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter your order amount" name="customer_image">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
+        <label for="exampleInputEmail1">Category Status</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter Status" name="category_status">
+            @error('category_status')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Customer Mobile</label>
-        <input type="text" class="form-control" id="exampleInputPassword1"
-            placeholder="Enter your order date" name="customer_mobile">
-            @error('order_id')<div class="alert alert-danger">{{$message}}</div>@enderror
-
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputPassword1">Customer Address</label>
-        <input type="text" class="form-control" id="exampleInputPassword1"
-            placeholder="Enter your order details" name="customer_address">
-            @error('customer_address')<div class="alert alert-danger">{{$message}}</div>@enderror
-
+   
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

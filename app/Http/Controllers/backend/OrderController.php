@@ -40,7 +40,7 @@ class OrderController extends Controller
             'order_details'=>$request->order_details
 
         ]);
-        return redirect()->route('orderList');
+        return redirect()->route('orderList')->with('success','created succesfully');
 
     }
     //end create
@@ -78,7 +78,7 @@ class OrderController extends Controller
             'order_date'=>$request->order_date,
             'order_details'=>$request->order_details
         ]);
-        return redirect()->route('orderList');
+        return redirect()->route('orderList')->with('success','update succesfully');
     }
     
 }

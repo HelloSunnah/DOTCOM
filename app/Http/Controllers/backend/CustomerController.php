@@ -93,7 +93,7 @@ public function Customer_submit_edit(Request $request, $id){
         'customer_address'=>$request->customer_address
 
     ]);
-    return redirect()->route('CustomerList');
+    return redirect()->route('CustomerList')->with('success','edit succesfully');
 }
 
 }

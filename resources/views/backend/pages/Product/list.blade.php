@@ -10,8 +10,8 @@
     <thead>
         <tr>
             <th scope="col">id</th>
-            <th scope="col">Product Id</th>
             <th scope="col">Product Name</th>
+            <th scope="col">Category Name</th>
             <th scope="col">Product Image</th>
             <th scope="col">Product Size</th>
             <th scope="col">Product Price</th>
@@ -25,8 +25,8 @@
         @foreach($Productall as $Product)
         <tr>
             <th>{{$Product->id}}</th>
-             <td>{{$Product->product_id}}</td>
              <td>{{$Product->product_name}}</td>
+             <td>{{$Product->categories->category_name}}</td>
              <td> <img width="70px" src="{{url('/uploads/product/',$Product->product_image)}}" alt=""></td>
              <td>{{$Product->product_size}}</td>
              <td>{{$Product->product_price}}</td>
@@ -34,7 +34,7 @@
 
              <td>
             <a class="btn btn-info" href="{{route('Product_delete',$Product->id)}}">delete</a>
-             <a class="btn btn-danger" href="">edit</a></td>
+             <a class="btn btn-danger" href="{{route('Product_edit',$Product->id)}}">edit</a></td>
         </tr>
         @endforeach
     </tbody>
