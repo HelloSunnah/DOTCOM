@@ -61,7 +61,14 @@
             @endforeach
         </select>
     </div>
-
+    <div class="form-group mt-4">
+        <label for="exampleInputPassword1">Brand</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"
+            placeholder="Enter Brand" name="Brand_name">
+            @error('Brand_name')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
+    </div>
 
     <div class="form-group mt-4 text-center">
          <button type="submit" class="btn btn-primary">Submit</button>

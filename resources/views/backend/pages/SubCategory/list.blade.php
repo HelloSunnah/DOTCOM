@@ -24,23 +24,21 @@
     </thead>
     <tbody>
         
-            @foreach($SubCategories as $Subcategory)
+    @foreach($subcategories as $subcategory)
             <tr>
 
-        <td>{{$Subcategory->id}}</td>
-        <td>{{$Subcategory->Subcategory_name}}</td>
-        <td>{{$Subcategory->Subcategory_details}}</td>
-        <td>{{$Subcategory->Subcategory_status}}</td>
+        <td>{{$subcategory->id}}</td>
+        <td>{{$subcategory->SubCategory_name}}</td>
+        <td>{{$subcategory->SubCategory_details}}</td>
+        <td>{{$subcategory->SubCategory_status}}</td>
        
             
         <td>
-            <a class="btn btn-danger" href="{{route('SubCategory_delete',$Subcategory->id)}}">Delete</a>
-            <a class="btn btn-success" href="{{route('SubCategory_edit',$Subcategory->id)}}">Edit</a></td>
+            <a class="btn btn-danger" href="{{route('SubCategory_delete',$subcategory->id)}}">Delete</a>
+            <a class="btn btn-success" href="{{route('SubCategory_edit',$subcategory->id)}}">Edit</a></td>
         </tr>
         @endforeach
     </tbody>
     </table>
 </div>
-<div class="d-flex justify-content-center"
->{{$SubCategories->links()}}</div>
     @endsection

@@ -60,7 +60,14 @@
             @endforeach
         </select>
     </div>
-
+    <div class="form-group mt-4">
+        <label for="Brand_id">Brand Name</label>
+        <select name="Brand_id" class="form-control form-select" id="Brand_id">
+            @foreach($Brands as $Brand)
+            <option value="{{$Brand->id}}">{{$Brand->Brand_name}}</option>
+            @endforeach
+        </select>
+    </div>
 
     <div class="form-group mt-4 text-center">
          <button type="submit" class="btn btn-primary">Submit</button>

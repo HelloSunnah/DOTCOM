@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class BrandController extends Controller
 {
@@ -60,11 +61,36 @@ public function Brand_submit(Request $request){
 
 
    }
-   public function Brand_edit(){
-      return view('backend.pages.Brand.update');
+   public function Brand_edit($id){
+      $BrandEdit=Brand::find($id);
+      return view('backend.pages.Brand.update',compact('BrandEdit'));
    }
+
+
+
+
    public function Brand_edit_Submit(Request $request,$id){
       $Edit_Submit=Brand::find($id);
+
+
+      $fileName =$Edit_Submit->Brand_image;
+      if($request->hasFile('Brand_image')){
+         $removeFile=public_path().'/uploads/Brand/'.$fileName;
+         File::delete($removeFile);
+
+
+              $fileName = 'Brand'.'.'.date('Ymdhmsis').'.'.$request->file('Brand_image')->getClientOriginalExtension();
+           //   dd($fileName);
+              $request->file('Brand_image')->storeAs('/uploads/Brand',$fileName);
+      }            //   dd($fileName);
+   
+   
+
+
+
+
+
+
 $Edit_Submit->update([
 
    'Brand_name'=>$request->Brand_name,

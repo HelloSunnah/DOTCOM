@@ -98,7 +98,10 @@ Route::get('/Category_Creat',[CategoryController::class,'Cate_Creat'])->name('Ca
 Route::post('/Category_Submit',[CategoryController::class,'Cate_Submit'])->name('Cate_Submit');
 
 Route::get('/Category_list',[CategoryController::class,'Cate_list'])->name('Cate_list');
+Route::get('/Category_edit/{id}',[CategoryController::class,'Category_edit'])->name('Category_edit');
+Route::put('/Category_edit_submit/{id}',[CategoryController::class,'Category_edit_submit'])->name('Category_edit_submit');
 
+Route::get('/Category_delete/{id}',[CategoryController::class,'Category_delete'])->name('Category_delete');
 
 
 
@@ -113,7 +116,7 @@ Route::get('/SubCategory_Creat',[SubCategoryController::class,'SubCategory_Creat
 Route::post('/SubCategory_Submit',[SubCategoryController::class,'SubCategory_Submit'])->name('SubCategory_Submit');
 Route::get('/SubCategory_list',[SubCategoryController::class,'SubCategory_list'])->name('SubCategory_list');
 Route::get('/SubCategory_edit/{id}',[SubCategoryController::class,'SubCategory_edit'])->name('SubCategory_edit');
-Route::get('/SubCategory_edit_submit/{id}',[SubCategoryController::class,'SubCategory_edit_submit'])->name('SubCategory_edit_submit');
+Route::put('/SubCategory_edit_submit/{id}',[SubCategoryController::class,'SubCategory_edit_submit'])->name('SubCategory_edit_submit');
 Route::get('/SubCategory_delete/{id}',[SubCategoryController::class,'SubCategory_delete'])->name('SubCategory_delete');
 
 

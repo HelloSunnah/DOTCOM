@@ -32,9 +32,37 @@ class CategoryController extends Controller
     ]);
     return redirect()->route('Cate_list');
  }
+
+
  public function Cate_list(){
-    $Categories=Category::paginate(4);
-    return view('backend.pages.Category.list',compact('Categories'));
+    $categories=Category::paginate(4);
+    return view('backend.pages.Category.list',compact('categories'));
+}
+
+
+public function Category_edit($id){
+  $editCategory=Category::find($id);
+  return view('backend.pages.Category.update',compact('editCategory'));
+}
+
+
+
+public function Category_edit_submit(Request $request,$id){
+  $editSubmitCategory=Category::find($id);
+
+$editSubmitCategory->update([
+  'category_name'=>$request->category_name,
+  'category_details'=>$request->category_details,
+  'category_status'=>$request->category_status
+
+]);
+return redirect()->route('Cate_list');
+}
+
+
+public function Category_delete($id){
+  Category::find($id)->delete();
+  return back();
 }
 
 }

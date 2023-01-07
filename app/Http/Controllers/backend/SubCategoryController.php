@@ -14,69 +14,55 @@ class SubCategoryController extends Controller
 
 
     public function SubCategory_Submit(Request $request){
-
-      
       $request->validate([
-        'Subcategory_name'=>'required',
-        'Subcategory_details'=>'required',
-        'Subcategory_status'=>'required'
+        'subcategory_name'=>'required',
+        'subcategory_details'=>'required',
+        'subcategory_status'=>'required'
 
 
       ]);
 
 
     SubCategory::create([
-        'Subcategory_name'=>$request->Subcategory_name,
-        'Subcategory_details'=>$request->Subcategory_details,
-        'Subcategory_status'=>$request->Subcategory_status
+        'subcategory_name'=>$request->subcategory_name,
+        'subcategory_details'=>$request->subcategory_details,
+        'subcategory_status'=>$request->subcategory_status
 
 
     ]);
     return redirect()->route('SubCategory_list');
  }
+
  public function SubCategory_list(){
-    $SubCategories=SubCategory::paginate(4);
-    return view('backend.pages.SubCategory.list',compact('SubCategories'));
+  $subcategories=SubCategory::all();
+  return view('backend.pages.SubCategory.list',compact('subcategories'));
 }
 
-public function SubCategory_edit(){
-  return view('backend.pages.SubCategory.update');
+
+
+
+
+
+public function SubCategory_edit($id){
+  $editSubCategory=SubCategory::find($id);
+  return view('backend.pages.SubCategory.update',compact('editSubCategory'));
 }
-public function SubCategory_edit_Submit(){
-  
-      
-  $request->validate([
-    'Subcategory_name'=>'required',
-    'Subcategory_details'=>'required',
-    'Subcategory_status'=>'required'
 
+public function SubCategory_edit_submit(Request $request,$id){
+  $editSubmitSubCategory=SubCategory::find($id);
 
-  ]);
+$editSubmitSubCategory->update([
+  'subcategory_name'=>$request->subcategory_name,
+  'subcategory_details'=>$request->subcategory_details,
+  'subcategory_status'=>$request->subcategory_status
 
-  $editSubCategorySubmit=SubCategory::find($id);
-  $editSubCategorySubmit->update
-  ([
-      'Subcategory_name'=>$request->Subcategory_name,
-      'Subcategory_details'=>$request->Subcategory_details,
-      'Subcategory_status'=>$request->Subcategory_status
-
-  ]);
-  return redirect()->route('CustomerList')->with('success','edit succesfully');
+]);
+return redirect()->route('SubCategory_list');
 }
-public function SubCategory_delete(Request $request,$id){
+public function SubCategory_delete($id){
   SubCategory::find($id)->delete();
-  return redirect()->route('SubCategory_list');
+  return back();
 }
 
 }
-
-
-
-
-
-
-
-
-
-
 

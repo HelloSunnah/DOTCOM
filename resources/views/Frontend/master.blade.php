@@ -12,19 +12,19 @@
 <title>Marazzo premium HTML5 & CSS3 Template</title>
 
 <!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="{{('frontend/assets/css/bootstrap.min.css'}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/bootstrap.min.css')}}">
 
 <!-- Customizable CSS -->
-<link rel="stylesheet" href="{{('frontend/assets/css/main.css'}}">
-<link rel="stylesheet" href="{{('frontend/assets/css/blue.css'}}">
-<link rel="stylesheet" href="{{('frontend/assets/css/owl.carousel.css'}}">
-<link rel="stylesheet" href="{{('frontend/assets/css/owl.transitions.css'}}">
-<link rel="stylesheet" href="{{('frontend/assets/css/animate.min.css'}}">
-<link rel="stylesheet" href="{{('frontend/assets/css/rateit.css'}}">
-<link rel="stylesheet" href="{{('frontend/assets/css/bootstrap-select.min.css'}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/main.css')}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/blue.css')}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/owl.carousel.css')}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/owl.transitions.css')}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/animate.min.css')}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/rateit.css')}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/bootstrap-select.min.css')}}">
 
 <!-- Icons/Glyphs -->
-<link rel="stylesheet" href="{{('frontend/assets/css/font-awesome.css'}}">
+<link rel="stylesheet" href="{{('frontend/assets/css/font-awesome.css')}}">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Barlow:200,300,300i,400,400i,500,500i,600,700,800" rel="stylesheet">
@@ -3489,7 +3489,7 @@
                   <div class="product-image">
                     <div class="image"> 
                           <a href="detail.html">
-                             <img src="{{('assets/images/products/p9.jpg'}}" alt=""> 
+                             <img src="{{('assets/images/products/p9.jpg')}}" alt=""> 
                               <img src="{{('assets/images/products/p9_hover.jpg')}}" alt="" class="hover-image">
                           </a>
                           
@@ -3733,11 +3733,11 @@
       <div class="col-xs-12 col-sm-4 no-padding">
         <div class="clearfix payment-methods">
           <ul>
-            <li><img src="{{'frontend/assets/images/payments/1.png'}}" alt=""></li>
-            <li><img src="{{'frontend/assets/images/payments/2.png'}}" alt=""></li>
-            <li><img src="{{'frontend/assets/images/payments/3.png'}}" alt=""></li>
-            <li><img src="{{'frontend/assets/images/payments/4.png'}}" alt=""></li>
-            <li><img src="{{'frontend/assets/images/payments/5.png'}}" alt=""></li>
+            <li><img src="{{('frontend/assets/images/payments/1.png')}}" alt=""></li>
+            <li><img src="{{('frontend/assets/images/payments/2.png')}}" alt=""></li>
+            <li><img src="{{('frontend/assets/images/payments/3.png'}}" alt=""></li>
+            <li><img src="{{('frontend/assets/images/payments/4.png'}}" alt=""></li>
+            <li><img src="{{('frontend/assets/images/payments/5.png')}}" alt=""></li>
           </ul>
         </div>
         <!-- /.payment-methods --> 
@@ -3752,18 +3752,18 @@
 <!-- For demo purposes – can be removed on production : End --> 
 
 <!-- JavaScripts placed at the end of the document so the pages load faster --> 
-<script src="{{('frontend/assets/js/jquery-1.11.1.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/bootstrap.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/bootstrap-hover-dropdown.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/owl.carousel.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/echo.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/jquery.easing-1.3.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/bootstrap-slider.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/jquery.rateit.min.js'}}"></script> 
+<script src="{{('frontend/assets/js/jquery-1.11.1.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/bootstrap.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/bootstrap-hover-dropdown.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/owl.carousel.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/echo.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/jquery.easing-1.3.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/bootstrap-slider.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/jquery.rateit.min.js')}}"></script> 
 <script src="{{('frontend/assets/js/lightbox.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/bootstrap-select.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/wow.min.js'}}"></script> 
-<script src="{{('frontend/assets/js/scripts.js'}}"></script>
+<script src="{{('frontend/assets/js/bootstrap-select.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/wow.min.js')}}"></script> 
+<script src="{{('frontend/assets/js/scripts.js')}}"></script>
 </body>
 
 </html>

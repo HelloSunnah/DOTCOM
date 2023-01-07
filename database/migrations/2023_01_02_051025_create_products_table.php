@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('product_price');
             $table->string('product_status');
             $table->string('category_id');
+            $table->string('Brand_id');
             $table->timestamps();
         });
     }

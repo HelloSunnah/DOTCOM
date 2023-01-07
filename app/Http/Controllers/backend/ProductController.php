@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ use App\Http\Controllers\Controller;
 class ProductController extends Controller
 {
 public function Product_list(){
-    $Productall=Product::with('categories')->get();
+    $Productall=Product::with('categories','Brands')->get();
     return view('backend.pages.Product.list',compact('Productall'));
     
     }
@@ -18,15 +19,17 @@ public function Product_list(){
 
     public function Product_create(){
         $categories = Category::all();
-        return view('backend.pages.Product.create',compact('categories'));
+        $Brands=Brand::all();
+        return view('backend.pages.Product.create',compact('categories','Brands'));
+
 
 }
 public function Product_submit_create(Request $request){
-
     $request->validate([
 
 'product_name'=>'required',
 'category_id'=>'required',
+'Brand_id'=>'required',
 'product_image'=>'required',
 'product_size'=>'required',
 'product_price'=>'required',
@@ -34,7 +37,7 @@ public function Product_submit_create(Request $request){
     ]);
     $fileName=null;
     if ($request->hasFile('product_image')){
-    $fileName='kodeeo'.'_'.date('Ymdhmsis').'.'.$request->file('product_image')->
+    $fileName='kodeeo'.'.'.date('Ymdhmsis').'.'.$request->file('product_image')->
     getclientOriginalExtension();
     $request->file('product_image')->storeAs('/uploads/product',$fileName);
     }
@@ -42,6 +45,7 @@ public function Product_submit_create(Request $request){
     Product::create([
         'product_name'=>$request->product_name,
         'category_id'=>$request->category_id,
+        'Brand_id'=>$request->Brand_id,
         'product_image'=>$fileName,
         'product_size'=>$request->product_size,
         'product_price'=>$request->product_price,
@@ -68,6 +72,7 @@ public function Product_submit_create(Request $request){
         'product_name'=>$request->product_name,
         'category_id'=>$request->category_id,
         'product_image'=>$fileName,
+        'Brand_id'=>$request->Brand_id,
         'product_size'=>$request->product_size,
         'product_price'=>$request->product_price,
         'product_status'=>$request->product_status

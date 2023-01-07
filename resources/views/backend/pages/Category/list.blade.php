@@ -24,7 +24,7 @@
     </thead>
     <tbody>
         
-            @foreach($Categories as $category)
+            @foreach($categories as $category)
             <tr>
 
         <td>{{$category->id}}</td>
@@ -34,13 +34,13 @@
        
             
         <td>
-            <a class="btn btn-danger" href="{{route('Cate_Creat')}}">Delete</a>
-            <a class="btn btn-success" href="{{route('Cate_Creat')}}">Edit</a></td>
+            <a class="btn btn-danger" href="{{route('Category_delete',$category->id)}}">Delete</a>
+            <a class="btn btn-success" href="{{route('Category_edit',$category->id)}}">Edit</a></td>
         </tr>
         @endforeach
     </tbody>
     </table>
 </div>
 <div class="d-flex justify-content-center"
->{{$Categories->links()}}</div>
+>{{$categories->links()}}</div>
     @endsection

@@ -87,7 +87,7 @@ public function Customer_submit_edit(Request $request, $id){
     ([
         'customer_id'=>$request->customer_id,
         'customer_name'=>$request->customer_name,
-        'customer_image'=>$request->customer_image,
+        'customer_image'=>$filename,
 
         'customer_mobile'=>$request->customer_mobile,
         'customer_address'=>$request->customer_address

@@ -1,6 +1,6 @@
 @extends('backend.master')
 @section('content')
-<h1>Category list Page</h1>
+<h1>Brand list Page</h1>
 @if (session('success'))
 <div class="alert alert-success">
 {{session("success")}}

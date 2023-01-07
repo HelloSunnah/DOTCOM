@@ -35,7 +35,13 @@
             @error('customer_mobile')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Customer Image</label>
+        <input type="file" class="form-control"  value="{{$editCustomer->customer_image}}" id="exampleInputEmail1" aria-describedby="emailHelp"
+           name="customer_name">
+           @error('customer_image')<div class="alert alert-danger">{{$message}}</div>@enderror
 
+    </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Customer Address</label>
         <input type="text" class="form-control"  value="{{$editCustomer->customer_address}}" id="exampleInputPassword1"
