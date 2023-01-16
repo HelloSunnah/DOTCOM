@@ -10,7 +10,7 @@
 @endif
 
 
-<form action="{{route('Customer_submit_edit',$editCustomer->id)}}" method="post" >
+<form action="{{route('Customer_submit_edit',$editCustomer->id)}}" method="post" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div class="form-group">
@@ -37,8 +37,10 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Customer Image</label>
-        <input type="file" class="form-control"  value="{{$editCustomer->customer_image}}" id="exampleInputEmail1" aria-describedby="emailHelp"
+        <input type="file" class="form-control"   id="exampleInputEmail1" aria-describedby="emailHelp"
            name="customer_name">
+           <img src="{{url('/uploads/customer/'
+            )}}" alt="">
            @error('customer_image')<div class="alert alert-danger">{{$message}}</div>@enderror
 
     </div>

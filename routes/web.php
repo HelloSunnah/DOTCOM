@@ -9,10 +9,9 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\backend\SubCategoryController;
-use App\Http\Controllers\Frontend\ProjectViewController;
-
-
+use App\Http\Controllers\Frontend\FrontendPageController;
 
 
 
@@ -30,7 +29,7 @@ use App\Http\Controllers\Frontend\ProjectViewController;
 Route::get('/reg_form',[authController::class ,'regForm'])->name('regForm');
 Route::post('/reg_form_submit',[authController::class ,'regFormSubmit'])->name('regFormSubmit');
 
-Route::get('/Login_form',[authController::class ,'login'])->name('login');
+Route::get('/Login_form',[authController::class ,'login'])->name('Login');
 Route::post('/Login_form_submit',[authController::class ,'loginSubmit'])->name('loginSubmit');
 
 Route::group(['middleware'=>'CheckAdmin'],function(){
@@ -40,10 +39,6 @@ Route::get('/logout',[authController::class ,'logout'])->name('logout');
 
 
 
-
-Route::get('/', function () {
-    return view('backend.content');
-})->name('admin');
 Route::get('/dashboard-admin',[DashboardController::class,'dashboard'])->name('dashboard');
 Route::get('/content-admin',[DashboardController::class,'content'])->name('content');
 
@@ -85,9 +80,9 @@ Route::post('/Product_submit_create',[ProductController::class,'Product_submit_c
 Route::get('/Product_delete/{id}',[ProductController::class,'Product_delete'])->name('Product_delete');
 
  Route::get('/Product_edit/{id}',[ProductController::class,'Product_edit'])->name('Product_edit');
-Route::get('/Product_submit_edit/{id}',[ProductController::class,'Product_submit_edit'])->name('Product_submit_edit');
+Route::put('/Product_submit_edit/{id}',[ProductController::class,'Product_submit_edit'])->name('Product_submit_edit');
 
-});
+
 
 
 
@@ -137,13 +132,18 @@ Route::get('/Brand_delete/{id}',[BrandController::class,'Brand_delete'])->name('
 
 
 
+});
 
 
 
 
 
+Route::get('/',[FrontendController::class,'Frontend'])->name('Frontend');
+Route::get('mainFront',[FrontendController::class,'mainFront'])->name('mainFront');
+
+Route::post('/Frontend_submit_register',[FrontendController::class,'Frontend_submit_register'])->name('Frontend_submit_register');
+Route::post('/Frontend_login_submit',[FrontendController::class,'Frontend_login_submit'])->name('Frontend_login_submit');
+Route::get('/Frontend_logout',[FrontendController::class,'Frontend_logout'])->name('Frontend.logout');
 
 
-    //    FRONTEND WORK START HERE
-
-    Route::get('/frontpage',[ProjectViewController::class,'frontpage'])->name('frontpage');
+Route::get('/cart',[FrontendController::class,'cart'])->name('cart');

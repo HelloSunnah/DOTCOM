@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Support\Facades\File;
 
 class CustomerController extends Controller
 {
@@ -57,14 +58,17 @@ public function Customer_submit_Create(Request $request){
         return back();
     }
 
-public function Customer_edit($id){
+public function Category_edit($id){
     $editCustomer=Customer::find($id);
     return view('backend.pages.Customer.update',compact('editCustomer'));
 }
 
 
 
-public function Customer_submit_edit(Request $request, $id){
+public function Category_edit_submit(Request $request, $id){
+
+   
+
 
 
     $request->validate([
@@ -83,12 +87,20 @@ public function Customer_submit_edit(Request $request, $id){
 
 
     $editCustomerSubmit=Customer::find($id);
+    $fileName=$editCustomerSubmit->customer_image;
+    if($request->hasFile('customer_image')){
+        $removeFile= public_puth().'/uploads/customer/'.$fileName;
+        File::delete($removeFile);
+    $fileName='kodeeo'.'.'.date('Ymdhmsis').'.'.$request->file('customer_image')->
+    getclientOriginalExtension();
+    $request->file('customer_image')->storeAs('/uploads/customer/',$fileName);
+    }
+
     $editCustomerSubmit->update
     ([
         'customer_id'=>$request->customer_id,
         'customer_name'=>$request->customer_name,
-        'customer_image'=>$filename,
-
+        'customer_image'=>$fileName,
         'customer_mobile'=>$request->customer_mobile,
         'customer_address'=>$request->customer_address
 

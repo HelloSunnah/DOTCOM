@@ -24,7 +24,9 @@ class CheckAdminMiddleware
         else{
             return to_route('login');
         }
+     
     }
+    return to_route('Frontend');
 
 }
 }

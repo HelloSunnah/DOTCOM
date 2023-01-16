@@ -18,19 +18,22 @@ class authController extends Controller
 
       $request->validate([
          'name'=>'required',
-         'email'=>'required',
-         'username'=>'required',
-         'password'=>'required'
+         'email'=>'required|unique:users',
+         'password'=>'required|min:5'
        ]);
 
-
+   if(
    User::create([
     'name'=>$request->name,
     'email'=>$request->email,
-    'username'=>$request->username,
     'password'=>bcrypt($request->password)
-   ]);
-   return back()->with('success','Resistration Succesfull');
+   ])
+   ){
+   return back()->with('success','Registration Succesfull');
+   }
+   else{
+      return back()->with('danger','register not successfull');
+   }
 }
    
 
@@ -54,6 +57,8 @@ public function login(){
  }
  public function logout(){
     auth()->logout();
-    return to_route('login')->with('success','Logout Succesfull');
+    return to_route('Login')->with('success','Logout Succesfull');
  }
 }
+
+

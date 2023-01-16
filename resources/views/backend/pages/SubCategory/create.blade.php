@@ -3,8 +3,9 @@
 <h1>SubCategory Page</h1>
 
 
-<form action="{{route('SubCategory_Submit')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('SubCategory_Submit')}}" method="post">
     @csrf
+ 
     <div class="form-group">
         <label for="exampleInputEmail1">SubCategory Name</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -19,7 +20,7 @@
 
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Category Status</label>
+        <label for="exampleInputEmail1">SubCategory Status</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Enter Status" name="subcategory_status">
             @error('subcategory_status')<div class="alert alert-danger">{{$message}}</div>@enderror

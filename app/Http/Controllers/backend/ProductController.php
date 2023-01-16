@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -63,10 +64,24 @@ public function Product_submit_create(Request $request){
     }
     public function Product_edit($id){
         $editProduct=Product::find($id);
-        return view('backend.pages.Product.update',compact('editProduct'));
+        $categories=Category::all();
+        $Brands=Brand::all();
+        return view('backend.pages.Product.update',compact('editProduct','categories','Brands'));
     }
     public function Product_submit_edit(Request $request,$id){
         $ProductSubmit=Product::find($id);
+
+        $fileName=$ProductSubmit->product_image;
+        if ($request->hasFile('product_image')){
+            $removeFile= public_puth().'/uploads/product/'.$fileName;
+            File::delete($removeFile);
+        $fileName='kodeeo'.'.'.date('Ymdhmsis').'.'.$request->file('product_image')->
+        getclientOriginalExtension();
+        $request->file('product_image')->storeAs('/uploads/product/',$fileName);
+        }
+
+
+
       $ProductSubmit->update([
 
         'product_name'=>$request->product_name,

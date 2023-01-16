@@ -29,7 +29,8 @@
              <td>{{$Product->product_name}}</td>
              <td>{{$Product->categories->category_name}}</td>
              <td>{{$Product->Brands->Brand_name}}</td>
-             <td> <img width="70px" src="{{url('/uploads/product/',$Product->product_image)}}" alt=""></td>
+             <td> <img width="50px" src="{{url('/uploads/product/',$Product->product_image)}}" 
+             alt=""></td>
              <td>{{$Product->product_size}}</td>
              <td>{{$Product->product_price}}</td>
              <td>{{$Product->product_status}}</td>

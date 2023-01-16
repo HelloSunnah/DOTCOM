@@ -14,6 +14,7 @@
     <thead>
         <tr>
             <th scope="col">id</th>
+            <th scope="col">Category Name</th>
             <th scope="col">SubCategory Name</th>
             <th scope="col">SubCategory Details</th>
             <th scope="col">SubCategory Status</th>
