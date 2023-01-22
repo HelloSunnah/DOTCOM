@@ -1,17 +1,20 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\authController;
 use App\Http\Controllers\backend\BrandController;
 use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\Frontend\checkoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\FrontPageController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\Frontend\FrontendPageController;
+use App\Http\Controllers\Frontend\FrontProductController;
 
 
 
@@ -139,11 +142,19 @@ Route::get('/Brand_delete/{id}',[BrandController::class,'Brand_delete'])->name('
 
 
 Route::get('/',[FrontendController::class,'Frontend'])->name('Frontend');
-Route::get('mainFront',[FrontendController::class,'mainFront'])->name('mainFront');
 
 Route::post('/Frontend_submit_register',[FrontendController::class,'Frontend_submit_register'])->name('Frontend_submit_register');
 Route::post('/Frontend_login_submit',[FrontendController::class,'Frontend_login_submit'])->name('Frontend_login_submit');
 Route::get('/Frontend_logout',[FrontendController::class,'Frontend_logout'])->name('Frontend.logout');
 
 
-Route::get('/cart',[FrontendController::class,'cart'])->name('cart');
+Route::get('/cart_view',[cartController::class,'cartview'])->name('cartview');
+
+Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('add-to-cart');
+
+Route::get('/productpage',[FrontProductController::class,'productpage'])->name('productpage');
+
+Route::get('/productDetails',[FrontProductController::class,'productDetails'])->name('productDetails');
+
+Route::get('/checkout',[checkoutController::class,'checkout'])->name('checkout');
+

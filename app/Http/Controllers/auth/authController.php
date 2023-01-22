@@ -57,7 +57,7 @@ public function login(){
  }
  public function logout(){
     auth()->logout();
-    return to_route('Login')->with('success','Logout Succesfull');
+    return to_route('Frontend')->with('success','Logout Succesfull');
  }
 }
 

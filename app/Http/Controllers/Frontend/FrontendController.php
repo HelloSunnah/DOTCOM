@@ -16,7 +16,7 @@ class FrontendController extends Controller
     public function Frontend(){
       $products=Product::all();
       $categories=Category::all();
-      return view('FrontendExtra.main.master',compact('products','categories'));
+      return view('FrontendExtra.main.content',compact('products','categories'));
 }
 
 public function mainFront(){
@@ -72,8 +72,9 @@ public function Frontend_login_submit(Request $request){
 }
 public function Frontend_logout(){
    auth()->logout();
-   return to_route('Frontend');
    notify()->success('Logout succeful');
+
+   return to_route('Frontend');
 
 
 }

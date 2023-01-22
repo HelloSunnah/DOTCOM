@@ -46,6 +46,6 @@
     </tbody>
     </table>
 </div>
-<div class="d-flex justify-content-center"
->{{$customerall->links()}}</div>
+<div class="d-flex justify-content-center">
+{{$customerall->links()}}</div>
     @endsection
