@@ -176,8 +176,8 @@
         </button>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <a class="dropdown-item" href="">Price Low to High</a>
-            <a class="dropdown-item" href="">Price High to Low</a>
+            <a class="dropdown-item" href="{{route('search',['search_key='.request()->search_key.'&order_by=asc'])}}">Price Low to High</a>
+            <a class="dropdown-item" href="{{route('search',['search_key='.request()->search_key.'&order_by=desc'])}}">Price High to Low</a>
 
         </div>
     </div>

@@ -83,9 +83,13 @@ public function Frontend_logout(){
 public function search(Request $request){
 
 $search_key=$request->search_key;
+$order_by=$request->order_by ?? 'asc';
 
 
-   $products=Product::where('product_name','LIKE','%'.$search_key.'%')->get();
+
+   $products=Product::where('product_name','LIKE','%'.$search_key.'%')->
+   orwhere('product_price','LIKE','%'.$search_key.'%')->
+   orderby('product_price',$order_by)->get();
    return view('FrontendExtra.main.search',compact('products'));
 
 
