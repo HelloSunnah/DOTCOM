@@ -69,7 +69,7 @@
         <br>
         <br>
         <!-- Nav Bar End -->      
-        <x:notify-messages />
+        
 
         <!-- Bottom Bar Start -->
        

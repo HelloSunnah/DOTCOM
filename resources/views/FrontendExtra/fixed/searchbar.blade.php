@@ -8,12 +8,18 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-md-6">
+                        <form action="{{route('search')}}" method="get">
                         <div class="search">
-                            <input type="text" placeholder="Search">
+                            <input type="text" placeholder="Search" name="search_key">
                             <button><i class="fa fa-search"></i></button>
                         </div>
+                        </form>
                     </div>
+
+
+                    
                     <div class="col-md-3">
                         <div class="user">
                             <a href="wishlist.html" class="btn wishlist">
@@ -22,9 +28,8 @@
                             </a>
                             <a href="{{route('cartview')}}" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span></span>
+                                <span>({{session()->has('myCart')?count(session()->get('myCart')):0}})</span>
 
-                                <span></span>
                             </a>
                         </div>
                     </div>

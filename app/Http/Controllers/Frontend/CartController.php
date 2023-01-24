@@ -42,5 +42,14 @@ class CartController extends Controller
         return view('FrontendExtra.main.cart');
     }
 
-  
+    public function cartItemDelete($id)
+    {
+       $newCart=session()->get('myCart');
+        unset($newCart[$id]);
+        session()->put('myCart',$newCart);
+
+        notify()->success('Item deleted from cart.');
+        return redirect()->back();
+    }
 }
+  

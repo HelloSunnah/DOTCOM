@@ -33,7 +33,7 @@
         @include('FrontendExtra.fixed.searchbar')
 
         <!-- Footer End -->
-
+        <x:notify-messages />
         @yield('content')
         
         <!-- Footer Bottom Start -->

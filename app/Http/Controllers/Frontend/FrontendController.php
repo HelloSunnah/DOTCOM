@@ -80,11 +80,19 @@ public function Frontend_logout(){
 }
 
 
+public function search(Request $request){
 
-public function cart(){
-   return view('FrontendExtra.main.cart');
+$search_key=$request->search_key;
+
+
+   $products=Product::where('product_name','LIKE','%'.$search_key.'%')->get();
+   return view('FrontendExtra.main.search',compact('products'));
+
+
+
+
 }
+
+
 }
-
-
 

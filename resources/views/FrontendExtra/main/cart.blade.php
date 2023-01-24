@@ -47,9 +47,9 @@
 
                 @if(session()->has('myCart'))
                 @foreach(session()->get('myCart') as $key=>$cart)
-
+                
                 <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
-                    <div class="mr-1"><img class="rounded" src="{{url('/uploads/product/'.$cart['product_image'])}}" width="70"></div>
+                    <div class="mr-1"><img class="rounded" src="{{url('/uploads/product/'.$cart['image'])}}" width="70"></div>
                     <div class="d-flex flex-column align-items-center product-details"><span class="font-weight-bold">{{$cart['product_name']}}</span>
                         <div class="d-flex flex-row product-desc">
                             <div class="size mr-1"><span class="text-grey">Size:</span><span class="font-weight-bold">&nbsp;M</span></div>
@@ -62,7 +62,7 @@
                         <h5 class="text-grey">{{$cart['product_price']}} BDT</h5>
                     </div>
                     <div class="d-flex align-items-center">
-                        <a href="">Delete</a>
+                        <a href="{{route('cartItemDelete',$key)}}">Delete</a>
                     </div>
                 </div>
                 @endforeach

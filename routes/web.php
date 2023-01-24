@@ -148,9 +148,10 @@ Route::post('/Frontend_login_submit',[FrontendController::class,'Frontend_login_
 Route::get('/Frontend_logout',[FrontendController::class,'Frontend_logout'])->name('Frontend.logout');
 
 
-Route::get('/cart_view',[cartController::class,'cartview'])->name('cartview');
+Route::get('/cart_view',[CartController::class,'cartview'])->name('cartview');
 
 Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('add-to-cart');
+Route::get('/deleteCartItem/{id}',[CartController::class,'cartItemDelete'])->name('cartItemDelete');
 
 Route::get('/productpage',[FrontProductController::class,'productpage'])->name('productpage');
 
@@ -158,3 +159,5 @@ Route::get('/productDetails',[FrontProductController::class,'productDetails'])->
 
 Route::get('/checkout',[checkoutController::class,'checkout'])->name('checkout');
 
+
+Route::get('/search',[FrontendController::class,'search'])->name('search');
